@@ -1,0 +1,13 @@
+services:
+  front:
+    build:
+      context: .
+      args:
+        VITE_API_URL: ${VITE_API_URL:-}
+    image: cluster-front
+    container_name: cluster-front
+    ports:
+      - "${HTTP_PORT:-80}:80"
+    environment:
+      LAMBDA_HOST: ${LAMBDA_HOST:?defina LAMBDA_HOST no .env}
+    restart: unless-stopped
