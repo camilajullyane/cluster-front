@@ -16,7 +16,7 @@ function FlyToSelected({ selected }) {
 
 const radius = (n) => 6 + Math.sqrt(n ?? 0) * 2.5;
 
-export default function ClusterMap({ clusters, regions, selected, keyOf, onSelect }) {
+export default function ClusterMap({ clusters, selected, keyOf, onSelect }) {
   const selectedKey = selected ? keyOf(selected) : null;
 
   return (
@@ -29,7 +29,7 @@ export default function ClusterMap({ clusters, regions, selected, keyOf, onSelec
         .filter((c) => c.lat != null && c.lon != null)
         .map((c) => {
           const k = keyOf(c);
-          const color = regionColor(c.region, regions);
+          const color = regionColor(c.region);
           const isSel = k === selectedKey;
           return (
             <CircleMarker

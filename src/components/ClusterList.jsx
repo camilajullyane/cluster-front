@@ -1,6 +1,6 @@
 import { fmtAgo, fmtNum, regionColor } from '../format.js';
 
-export default function ClusterList({ clusters, regions, selectedKey, keyOf, onSelect }) {
+export default function ClusterList({ clusters, selectedKey, keyOf, onSelect }) {
   if (!clusters.length) return <p className="empty">Nenhum cluster encontrado.</p>;
 
   return (
@@ -10,7 +10,7 @@ export default function ClusterList({ clusters, regions, selectedKey, keyOf, onS
         return (
           <li key={k}>
             <button className={k === selectedKey ? 'item active' : 'item'} onClick={() => onSelect(k)}>
-              <span className="dot" style={{ background: regionColor(c.region, regions) }} />
+              <span className="dot" style={{ background: regionColor(c.region) }} />
               <span className="item-main">
                 <strong>{c.cluster}</strong>
                 <small>{c.region} · {fmtAgo(c.last_ts)}</small>

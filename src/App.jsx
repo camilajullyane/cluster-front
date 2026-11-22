@@ -119,7 +119,6 @@ export default function App() {
           </div>
           <ClusterList
             clusters={filtered}
-            regions={regions}
             selectedKey={selectedKey}
             keyOf={keyOf}
             onSelect={setSelectedKey}
@@ -129,7 +128,6 @@ export default function App() {
         <section className="map-wrap">
           <ClusterMap
             clusters={filtered}
-            regions={regions}
             selected={selected}
             keyOf={keyOf}
             onSelect={setSelectedKey}
