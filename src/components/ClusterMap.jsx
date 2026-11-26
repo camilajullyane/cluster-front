@@ -3,11 +3,6 @@ import { MapContainer, TileLayer, CircleMarker, Tooltip, useMap } from 'react-le
 import { fmtNum, regionColor } from '../format.js';
 
 const US_CENTER = [39.5, -98.35];
-// Limite de navegação: cobre EUA continental, Alasca, Havaí e Porto Rico.
-const US_BOUNDS = [
-  [15, -180], // sudoeste (abaixo do Havaí, antimeridiano)
-  [72, -60], // nordeste (norte do Alasca, leste do Maine/Porto Rico)
-];
 
 function FlyToSelected({ selected }) {
   const map = useMap();
@@ -25,14 +20,7 @@ export default function ClusterMap({ clusters, selected, keyOf, onSelect }) {
   const selectedKey = selected ? keyOf(selected) : null;
 
   return (
-    <MapContainer
-      center={US_CENTER}
-      zoom={4}
-      minZoom={3}
-      maxBounds={US_BOUNDS}
-      maxBoundsViscosity={1}
-      className="map"
-    >
+    <MapContainer center={US_CENTER} zoom={4} className="map" worldCopyJump>
       <TileLayer
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
