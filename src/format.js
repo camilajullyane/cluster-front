@@ -69,3 +69,17 @@ export function regionColor(region) {
   const t = Math.min(1, Math.max(0, (lon - LON_WEST) / (LON_EAST - LON_WEST)));
   return `hsl(${Math.round(270 - t * 270)}, 70%, 45%)`;
 }
+
+// Faixas de quantidade de navios por cluster, da menor para a maior.
+// Ajuste os limites (max) conforme a distribuição real dos dados.
+export const NAVIOS_FAIXAS = [
+  { max: 5, cor: '#93c5fd', label: 'até 5' },
+  { max: 20, cor: '#3b82f6', label: '6 – 20' },
+  { max: 50, cor: '#f59e0b', label: '21 – 50' },
+  { max: 100, cor: '#ea580c', label: '51 – 100' },
+  { max: Infinity, cor: '#b91c1c', label: 'mais de 100' },
+];
+
+export function naviosColor(n) {
+  return NAVIOS_FAIXAS.find((f) => (n ?? 0) <= f.max).cor;
+}
