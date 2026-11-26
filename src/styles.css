@@ -181,8 +181,6 @@ input[type='search'], select {
   font-variant-numeric: tabular-nums;
   font-size: 13px;
 }
-.mmsi-list a { color: var(--accent); text-decoration: none; }
-.mmsi-list a:hover { text-decoration: underline; }
 
 @media (max-width: 860px) {
   .stats { grid-template-columns: repeat(2, 1fr); }

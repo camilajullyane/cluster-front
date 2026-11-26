@@ -35,11 +35,7 @@ export default function ClusterDetail({ cluster: c, onClose }) {
       </div>
       <ul className="mmsi-list">
         {mmsis.map((m) => (
-          <li key={m}>
-            <a href={`https://www.marinetraffic.com/en/ais/details/ships/mmsi:${m}`} target="_blank" rel="noreferrer">
-              {m}
-            </a>
-          </li>
+          <li key={m}>{m}</li>
         ))}
       </ul>
     </div>
